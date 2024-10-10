@@ -1,0 +1,39 @@
+/*Definition of singly linked list:
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode() {
+        val = 0;
+        next = null;
+    }
+
+    ListNode(int data1) {
+        val = data1;
+        next = null;
+    }
+
+    ListNode(int data1, ListNode next1) {
+        val = data1;
+        next = next1;
+    }
+}
+ */
+
+class Solution {
+    public ListNode findStartingPoint(ListNode head) {
+         ListNode temp=head;
+         HashMap<ListNode,Integer> has=new HashMap<>();
+
+         while(temp!=null){
+             if(has.containsKey(temp)){
+                return temp;
+             }
+             has.put(temp,1);
+             temp=temp.next;
+         }
+         return null;
+    }
+}
+
+
